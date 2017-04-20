@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+spec:
+  template:
+    metadata:
+      labels:
+        name: my-mongo
+  containers:
+    image: mongo:3.2.4
+    imagePullPolicy: Always
+    name: mongo
+    ports:
+    - containerPort: 27017
+      protocol: TCP
+    resources:
+      limits:
+        cpu: 500m
+        memory: 250M
+      requests:
+        cpu: 100m
+        memory: 100M
+    securityContext:
+      privileged: false
